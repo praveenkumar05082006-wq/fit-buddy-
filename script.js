@@ -5,56 +5,61 @@ function generatePlan() {
     const intensity = document.getElementById("intensity").value;
 
     if (!name) {
-        alert("Please enter your name");
+        alert("Enter your name");
         return;
     }
 
+    let days = [
+        "Chest & Triceps",
+        "Back & Biceps",
+        "Leg Day",
+        "Cardio & Core",
+        "Shoulders",
+        "Full Body",
+        "Rest & Recovery"
+    ];
+
     let plan = `🔥 Fitness Plan for ${name}\n\n`;
 
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 0; i < 7; i++) {
 
-        plan += `Day ${i}:\n`;
+        plan += `Day ${i + 1}: ${days[i]}\n`;
 
-        // Warm-up
-        plan += "- Warm-up: 5–10 mins stretching\n";
+        plan += "- Warm-up: 5–10 mins\n";
 
-        // Goal-based workout
         if (goal === "weight loss") {
-            plan += "- Workout: Cardio + HIIT (Jump rope, running, burpees)\n";
+            plan += "- Workout: HIIT + Cardio (Jump rope, running)\n";
         } 
         else if (goal === "muscle gain") {
-            plan += "- Workout: Strength training (Pushups, squats, weights)\n";
+            plan += "- Workout: Strength training (Gym exercises)\n";
         } 
         else {
-            plan += "- Workout: Full body exercises (Yoga, mobility, light cardio)\n";
+            plan += "- Workout: Mixed training (Yoga + light cardio)\n";
         }
 
-        // Intensity logic
         if (intensity === "low") {
-            plan += "- Intensity: Light pace (30 mins)\n";
+            plan += "- Intensity: 30 mins\n";
         } 
         else if (intensity === "medium") {
-            plan += "- Intensity: Moderate (45 mins)\n";
+            plan += "- Intensity: 45 mins\n";
         } 
         else {
-            plan += "- Intensity: High (60 mins intense training)\n";
+            plan += "- Intensity: 60 mins\n";
         }
 
-        // Cooldown
-        plan += "- Cooldown: Stretching & breathing\n\n";
+        plan += "- Cooldown: Stretching\n\n";
     }
 
-    // Nutrition tip
     let tip = "\n🥗 Nutrition Tip:\n";
 
     if (goal === "weight loss") {
-        tip += "Eat low-calorie, high-protein meals and stay hydrated.";
+        tip += "Eat clean, avoid sugar, and stay in calorie deficit.";
     } 
     else if (goal === "muscle gain") {
-        tip += "Increase protein intake and eat more calories.";
+        tip += "Eat high protein foods and maintain calorie surplus.";
     } 
     else {
-        tip += "Maintain a balanced diet with carbs, protein, and fats.";
+        tip += "Maintain a balanced healthy diet.";
     }
 
     document.getElementById("result").innerText = plan + tip;
