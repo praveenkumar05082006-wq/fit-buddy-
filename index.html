@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FitBuddy - AI Fitness Planner</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🏋️ FitBuddy</h1>
+    <p>Your Personal Fitness Planner</p>
+
+    <div class="form-box">
+        <input id="name" placeholder="Enter your name">
+        <input id="age" type="number" placeholder="Age">
+        <input id="weight" type="number" placeholder="Weight (kg)">
+
+        <select id="goal">
+            <option value="weight loss">Weight Loss</option>
+            <option value="muscle gain">Muscle Gain</option>
+            <option value="general fitness">General Fitness</option>
+        </select>
+
+        <select id="intensity">
+            <option value="low">Low Intensity</option>
+            <option value="medium">Medium Intensity</option>
+            <option value="high">High Intensity</option>
+        </select>
+
+        <button onclick="generatePlan()">Generate Plan</button>
+    </div>
+
+    <div id="resultBox" class="result-box">
+        <h2>📅 Your 7-Day Plan</h2>
+        <pre id="result"></pre>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
